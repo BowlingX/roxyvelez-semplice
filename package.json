@@ -15,15 +15,18 @@
     "babel-runtime": "^5.6.18",
     "css-loader": "^0.15.2",
     "extract-text-webpack-plugin": "^0.8.2",
+    "file-loader": "^0.8.4",
     "loader-utils": "^0.2.10",
     "node-libs-browser": "^0.5.2",
     "node-sass": "^3.2.0",
     "object-assign": "^3.0.0",
     "sass-loader": "^1.0.2",
     "style-loader": "^0.12.3",
+    "url-loader": "^0.5.6",
     "webpack": "^1.10.1"
   },
   "dependencies": {
+    "file-loader": "^0.8.4",
     "flexcss": "git+https://github.com/BowlingX/flexcss.git"
   }
 }

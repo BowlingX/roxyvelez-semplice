@@ -10,6 +10,7 @@
   }
 }
 
+$roxyRed: #b32f38;
 
 .box-round {
   cursor: pointer;
@@ -21,9 +22,24 @@
   height: 150px;
   border: 3px solid rgba(#fff, .3);
   z-index: 2;
-  background: rgba(#b32f38, .8);
+  background: rgba($roxyRed, .8);
   position: relative;
-  transform: scale(.7);
+  transform: scale(.9);
+
+  i {
+    color: rgba(#fff, .7);
+    font-size: 50px;
+    z-index: 2;
+    position: relative;
+    top: #{calc(50% - (50px / 2))};
+    left: #{calc(50% - 46px)};
+    @include perspectiveHelper();
+  }
+
+  i:before {
+    transition: transform .3s ease;
+    transform: scale(1);
+  }
 
   &:after {
     position: absolute;
@@ -36,12 +52,60 @@
     border: 9px solid rgba(#fff, .3);
     @include animate(bubble, 2s, infinite, alternate);
   }
-  will-change: background;
   transition: background .5s ease;
+
   &:hover {
-    background: rgba(#b32f38, 1);
-    i {
+    background: rgba($roxyRed, 1);
+    i:before {
       transform: scale(1.3);
     }
   }
+  &:active {
+    background: darken($roxyRed, 10%);
+  }
+}
+
+.modal-container {
+  background: rgba(#000, .5);
+}
+
+.video-embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+}
+
+.video-embed-container iframe, .video-embed-containerobject,
+.video-embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-modal {
+  width: 100%;
+  min-width: 100%;
+  background: rgba(#000, .5);
+  padding: 0;
+  padding-top: 56px;
+  .modal-close {
+    color: #fff;
+    background: none;
+    font-size: 32px;
+
+    &:hover {
+      color: darken(#fff, 20);
+    }
+
+    &:active {
+      color: darken(#fff, 40);
+
+    }
+  }
+  align-self: center !important;
 }

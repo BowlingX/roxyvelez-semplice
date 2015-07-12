@@ -43,9 +43,11 @@ if (get_field('cover_bg_type') === 'image') : ?>
     <?php else : ?>
         <?php $video_type = get_field('cover_videotype'); ?>
         <div class="cover-video flex-center cover-video-responsive" data-has-bg="true">
-            <div class="box-round"></div>
+            <div class="box-round">
+                <i class="icon-play"></i>
+            </div>
 
-            <div class="modal">
+            <div class="modal video-modal">
                 <?php if (get_field($video_type . '_mp4')) : ?>
 
                     <iframe src="<?php echo get_field($video_type . '_mp4') ?>" width="500" height="281"

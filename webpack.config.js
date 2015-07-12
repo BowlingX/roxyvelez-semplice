@@ -20,11 +20,11 @@ module.exports = {
                 loader: ExtractTextPlugin.extract(
                     // activate source maps via loader query
                     'css?sourceMap!' +
-                    'autoprefixer-loader?browsers=last 2 versions!' +
+                    'autoprefixer?browsers=last 2 versions!' +
                     'sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true'
                 )
-            }
-
+            },
+            {test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'file-loader?limit=100000'},
         ]
     },
     resolve: {
@@ -35,9 +35,10 @@ module.exports = {
             path.join(__dirname, 'node_modules/flexcss/src/main')]
     },
     entry: {
-        'build/App': ['js/index']
+        'App': ['js/index']
     },
     output: {
+        path:__dirname + "/build",
         filename: '[name].js',
         libraryTarget: 'umd',
         library: '[name]',
@@ -46,7 +47,7 @@ module.exports = {
     },
     plugins: [
         new webpack.EnvironmentPlugin(['NODE_ENV']),
-        new ExtractTextPlugin("build/styles.css")
+        new ExtractTextPlugin('[name].css')
     ]
 };
 
