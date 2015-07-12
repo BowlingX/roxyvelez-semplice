@@ -1,0 +1,13 @@
+@import '~flexcss/assets/settings';
+@import '~flexcss/assets/lib/mixins';
+@import '~flexcss/assets/lib/modal';
+
+@import "components/video";
+
+.flex-center {
+  display:flex !important;
+  justify-content: center;
+  background-size:cover !important;
+  background-position: center !important;
+  align-items:center;
+}
