@@ -10,14 +10,25 @@
   }
 }
 
+@include keyframes(dropIn) {
+  0% {
+    opacity:0;
+    transform:translate3d(0,-80px,0);
+  }
+
+  100% {
+    transform:translate3d(0,0,0);
+  }
+}
+
 $roxyRed: #0b1024;
 
 #content .cover-video {
   background: #d51f3c;
 }
 
-$width:250px;
-$height:250px;
+$width:210px;
+$height:210px;
 
 .box-round {
   cursor: pointer;
@@ -30,8 +41,9 @@ $height:250px;
   z-index: 2;
   background: $roxyRed;
   position: relative;
-
+  @include animate(dropIn, 1s);
   i {
+    pointer-events: none;
     color: rgba(#fff, .7);
     font-size: 80px;
     z-index: 2;
@@ -80,23 +92,22 @@ $height:250px;
   }
   &:active {
     background: darken($roxyRed, 10%);
+    i:before {
+      transform: scale(1.4);
+    }
   }
+}
+
+.loader-container > .loader {
+  height:40px;
 }
 
 .modal-container {
   background: rgba(#000, .5);
 }
 
-.video-embed-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  max-width: 100%;
-  height: auto;
-}
-
-.video-embed-container iframe, .video-embed-containerobject,
+.video-embed-container iframe,
+.video-embed-container object,
 .video-embed-container embed {
   position: absolute;
   top: 0;
@@ -109,8 +120,8 @@ $height:250px;
   width: 100%;
   min-width: 100%;
   background: rgba(#000, .5);
+  min-height:80vh;
   padding: 0;
-  padding-top: 56px;
   .modal-close {
     color: #fff;
     background: none;
@@ -122,7 +133,6 @@ $height:250px;
 
     &:active {
       color: darken(#fff, 40);
-
     }
   }
   align-self: center !important;

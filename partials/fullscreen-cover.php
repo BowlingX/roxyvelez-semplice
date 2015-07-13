@@ -38,30 +38,20 @@ if (get_field('cover_bg_type') === 'image') : ?>
         echo 'data-image-zoom="zoom"';
     } ?> <?php if (get_field('cover_bg_image_scale') === 'actual-size') : echo 'data-bg-align="' . get_field('cover_bg_image_align') . '"'; endif; ?>></div>
 <?php else : ?>
-    <?php if ($detect->isMobile()) : ?>
-        <div class="cover-video-responsive" data-has-bg="true"></div>
-    <?php else : ?>
         <?php $video_type = get_field('cover_videotype'); ?>
         <div class="cover-video flex-center cover-video-responsive" data-has-bg="true">
-            <div class="box-round">
+            <div class="box-round" data-play-cover="video-modal">
                 <i class="icon-play"></i>
             </div>
-
-            <div class="modal video-modal">
+            <div id="video-modal" class="modal video-modal">
                 <?php if (get_field($video_type . '_mp4')) : ?>
-
-                    <iframe src="<?php echo get_field($video_type . '_mp4') ?>" width="500" height="281"
-                            frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a
-                            href="https://vimeo.com/111167000">Demo Reel 2014</a> from <a
-                            href="https://vimeo.com/roxyvelez">Roxy
-                            Velez</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+                    <div class="video-embed-container">
+                        <iframe src="<?php echo get_field($video_type . '_mp4') ?>?api=1"
+                                frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    </div>
                 <?php endif; ?>
-                <?php if (get_field($video_type . '_ogv')) : ?>
-                    <source src="<?php echo get_field($video_type . '_ogv'); ?>" type="video/ogg"><?php endif; ?>
-                <p>If you are reading this, it is because your browser does not support the HTML5 video element.</p>
             </div>
         </div>
-    <?php endif; ?>
 <?php endif; ?>
 <?php if (filter_var(get_field('hide_cover_headline'), FILTER_VALIDATE_BOOLEAN) !== TRUE) : ?>
     <?php if (get_field('cover_headline') && trim(get_field('cover_headline')) !== '' || get_field('cover_headline_image')) : ?>
