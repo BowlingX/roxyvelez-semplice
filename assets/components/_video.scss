@@ -1,16 +1,23 @@
 @include keyframes(bubble) {
 
   0% {
-    opacity: 0;
+    opacity:0;
     transform: scale(1);
   }
   100% {
-    opacity: 1;
+    opacity:1;
     transform: scale(1.08);
   }
 }
 
-$roxyRed: #b32f38;
+$roxyRed: #0b1024;
+
+#content .cover-video {
+  background: #d51f3c;
+}
+
+$width:250px;
+$height:250px;
 
 .box-round {
   cursor: pointer;
@@ -18,27 +25,37 @@ $roxyRed: #b32f38;
   padding-left: 20px;
   padding-right: 15px;
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  border: 3px solid rgba(#fff, .3);
+  width: $width;
+  height:$height;
   z-index: 2;
-  background: rgba($roxyRed, .8);
+  background: $roxyRed;
   position: relative;
-  transform: scale(.9);
 
   i {
     color: rgba(#fff, .7);
-    font-size: 50px;
+    font-size: 80px;
     z-index: 2;
-    position: relative;
-    top: #{calc(50% - (50px / 2))};
-    left: #{calc(50% - 46px)};
+    position: absolute;
+    top: #{calc(50% - (80px / 2))};
+    left: #{calc(50% - (80px / 2))};
     @include perspectiveHelper();
   }
 
   i:before {
     transition: transform .3s ease;
     transform: scale(1);
+  }
+
+  &:before {
+    position: absolute;
+    width: calc(100% + 20px);
+    content: ' ';
+    height: calc(100% + 20px);
+    left: -10px;
+    border-radius: 50%;
+    top: -10px;
+    border: 10px solid #8c1a33;
+    z-index:2;
   }
 
   &:after {
@@ -49,8 +66,9 @@ $roxyRed: #b32f38;
     left: -12px;
     border-radius: 50%;
     top: -12px;
-    border: 9px solid rgba(#fff, .3);
-    @include animate(bubble, 2s, infinite, alternate);
+    border: 11px solid #ad1c37;
+    @include animate(bubble, 1.4s, infinite, alternate);
+    z-index:1;
   }
   transition: background .5s ease;
 
