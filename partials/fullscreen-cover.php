@@ -39,7 +39,7 @@ if (get_field('cover_bg_type') === 'image') : ?>
     } ?> <?php if (get_field('cover_bg_image_scale') === 'actual-size') : echo 'data-bg-align="' . get_field('cover_bg_image_align') . '"'; endif; ?>></div>
 <?php else : ?>
         <?php $video_type = get_field('cover_videotype'); ?>
-        <div class="cover-video flex-center cover-video-responsive" data-has-bg="true">
+        <div class="cover-video flex-center cover-video-responsive <?=get_field('video_mute') !== 'no' ? 'just-background' : ''?>" data-has-bg="true">
             <div class="box-round" data-play-cover="video-modal">
                 <i class="icon-play"></i>
             </div>
