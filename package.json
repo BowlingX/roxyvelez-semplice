@@ -29,6 +29,7 @@
     "flexcss": "git+https://github.com/BowlingX/flexcss.git#master"
   },
   "scripts": {
-    "dist": "node_modules/webpack/bin/webpack.js --optimize-minimize --optimize-occurence-orde"
+    "dist": "node_modules/webpack/bin/webpack.js --optimize-minimize --optimize-occurence-order",
+    "develop": "node_modules/webpack/bin/webpack.js --watch"
   }
 }

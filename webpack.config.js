@@ -24,7 +24,7 @@ module.exports = {
                     'sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true'
                 )
             },
-            {test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'file-loader?limit=100000'},
+            {test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=50000'}
         ]
     },
     resolve: {

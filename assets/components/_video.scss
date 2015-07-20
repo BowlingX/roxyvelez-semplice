@@ -1,12 +1,12 @@
 @include keyframes(bubble) {
 
   0% {
-    opacity:0;
-    transform: scale(1);
+    opacity:1;
+    transform: scale(1.05) rotate(0);
   }
   100% {
-    opacity:1;
-    transform: scale(1.08);
+    opacity:.3;
+    transform: scale(1.1) rotate(10deg);
   }
 }
 
@@ -21,14 +21,14 @@
   }
 }
 
-$roxyRed: #0b1024;
+$roxyRed: #dd3b54;
 
 #content .cover-video.just-background {
   background: #d51f3c;
 }
 
-$width:210px;
-$height:210px;
+$width:300px;
+$height:300px;
 
 .box-round {
   cursor: pointer;
@@ -66,7 +66,7 @@ $height:210px;
     left: -10px;
     border-radius: 50%;
     top: -10px;
-    border: 10px solid #8c1a33;
+    border: 10px solid #db324c;
     z-index:2;
   }
 
@@ -78,8 +78,12 @@ $height:210px;
     left: -12px;
     border-radius: 50%;
     top: -12px;
-    border: 11px solid #ad1c37;
-    @include animate(bubble, 1.4s, infinite, alternate);
+    @include animate(bubble, 3s, infinite, alternate);
+    transform:scale(1.05);
+    border-image:url(images/dots_path.svg) 50%;
+    border-image-width: 50%;
+    border-image-repeat: round;
+    background-clip: padding-box;
     z-index:1;
   }
   transition: background .5s ease;
