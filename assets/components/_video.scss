@@ -1,23 +1,28 @@
 @include keyframes(bubble) {
 
   0% {
-    opacity:1;
-    transform: scale(1.05) rotate(0);
+    transform: scale(1.1, 1.1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1.0;
   }
   100% {
-    opacity:.3;
-    transform: scale(1.1) rotate(10deg);
+    transform: scale(1.2, 1.2) rotate(20deg);
+    opacity: 0;
   }
+
 }
 
 @include keyframes(dropIn) {
   0% {
-    opacity:0;
-    transform:translate3d(0,-80px,0);
+    opacity: 0;
+    transform: translate3d(0, -80px, 0);
   }
 
   100% {
-    transform:translate3d(0,0,0);
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -27,8 +32,18 @@ $roxyRed: #dd3b54;
   background: #d51f3c;
 }
 
-$width:300px;
-$height:300px;
+$width: 250px;
+$height: 250px;
+
+html:not(.nprogress-busy) {
+  .box-round {
+    @include animate(dropIn, 1s);
+    &:after {
+      @include animate(bubble, 3s, infinite);
+      animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+  }
+}
 
 .box-round {
   cursor: pointer;
@@ -37,11 +52,11 @@ $height:300px;
   padding-right: 15px;
   border-radius: 50%;
   width: $width;
-  height:$height;
+  height: $height;
   z-index: 2;
   background: $roxyRed;
   position: relative;
-  @include animate(dropIn, 1s);
+  opacity: 0;
   i {
     pointer-events: none;
     color: rgba(#fff, .7);
@@ -60,14 +75,14 @@ $height:300px;
 
   &:before {
     position: absolute;
-    width: calc(100% + 20px);
+    width: calc(100% + 24px);
     content: ' ';
-    height: calc(100% + 20px);
-    left: -10px;
+    height: calc(100% + 24px);
+    left: -12px;
     border-radius: 50%;
-    top: -10px;
+    top: -12px;
     border: 10px solid #db324c;
-    z-index:2;
+    z-index: 2;
   }
 
   &:after {
@@ -78,13 +93,12 @@ $height:300px;
     left: -12px;
     border-radius: 50%;
     top: -12px;
-    @include animate(bubble, 3s, infinite, alternate);
-    transform:scale(1.05);
-    border-image:url(images/dots_path.svg) 50%;
-    border-image-width: 50%;
-    border-image-repeat: round;
+    transform: scale(1.10);
+    border-image-source: url(images/dots.svg);
+    border-image-slice: 50%;
+    border-image-width: 100%;
     background-clip: padding-box;
-    z-index:1;
+    z-index: 1;
   }
   transition: background .5s ease;
 
@@ -103,7 +117,7 @@ $height:300px;
 }
 
 .loader-container > .loader {
-  height:40px;
+  height: 40px;
 }
 
 .modal-container {
@@ -124,7 +138,7 @@ $height:300px;
   width: 100%;
   min-width: 100%;
   background: rgba(#000, .5);
-  min-height:80vh;
+  min-height: 80vh;
   padding: 0;
   .modal-close {
     color: #fff;
