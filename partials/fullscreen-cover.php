@@ -41,7 +41,8 @@ if (get_field('cover_bg_type') === 'image') : ?>
         <?php $video_type = get_field('cover_videotype'); ?>
         <div class="cover-video flex-center cover-video-responsive <?=get_field('video_mute') !== 'no' ? 'just-background' : ''?>" data-has-bg="true">
             <div class="box-round" data-play-cover="video-modal">
-                <i class="icon-play"></i>
+                <i title="Demo
+                Reel" class="icon-play"></i>
             </div>
             <div id="video-modal" class="modal video-modal">
                 <?php if (get_field($video_type . '_mp4')) : ?>

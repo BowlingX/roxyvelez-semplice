@@ -28,20 +28,17 @@
 
 $roxyRed: #dd3b54;
 
-#content .cover-video.just-background {
-  background: #d51f3c;
-}
-
 $width: 250px;
 $height: 250px;
 
-html:not(.nprogress-busy) {
-  .box-round {
-    @include animate(dropIn, 1s);
-    &:after {
-      @include animate(bubble, 3s, infinite);
-      animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
+.box-round {
+  @include animate(dropIn, 1s);
+  animation-delay: .3s;
+  &:after {
+    opacity: 0;
+    @include animate(bubble, 3s, infinite);
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-delay: .3s;
   }
 }
 
@@ -59,13 +56,12 @@ html:not(.nprogress-busy) {
   opacity: 0;
   i {
     pointer-events: none;
-    color: rgba(#fff, .7);
-    font-size: 80px;
+    color: rgba(#fff, .85);
+    font-size: 90px;
     z-index: 2;
     position: absolute;
-    top: #{calc(50% - (80px / 2))};
-    left: #{calc(50% - (80px / 2))};
-    @include perspectiveHelper();
+    top: #{calc(50% - (90px / 2))};
+    left: #{calc(48% - (90px / 2))};
   }
 
   i:before {
@@ -100,19 +96,48 @@ html:not(.nprogress-busy) {
     background-clip: padding-box;
     z-index: 1;
   }
-  transition: background .5s ease;
+  transition: background-color .5s ease;
 
   &:hover {
-    background: rgba($roxyRed, 1);
+    background-color: rgba($roxyRed, 1);
     i:before {
       transform: scale(1.3);
     }
   }
   &:active {
-    background: darken($roxyRed, 10%);
+    background-color: darken($roxyRed, 2%);
     i:before {
       transform: scale(1.4);
     }
+  }
+}
+
+
+@-moz-document url-prefix() {
+  .box-round:after {
+    border-image:none;
+  }
+}
+
+
+#content .cover-video.just-background {
+  background: #d51f3c;
+  .box-round {
+    background: #dd3b54 url(images/logo.svg) no-repeat 10px center;
+    background-size: 80% auto;
+    &:hover {
+      background-color: lighten($roxyRed, 5%);
+      i:before, i:after {
+        transform: scale(1.3);
+      }
+    }
+    &:active {
+      background-color: darken($roxyRed, 2%);
+      i:before, i:after {
+        transform: scale(1.4);
+      }
+    }
+
   }
 }
 
