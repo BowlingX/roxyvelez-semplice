@@ -1,3 +1,5 @@
+$footerHeight:72px;
+
 .footer {
   text-align: center;
   font-size:1rem;
@@ -6,12 +8,10 @@
     color:#fff;
   }
   padding:20px 5px;
-  background:$roxyRed;
+  background:rgb(213, 31, 60);
+  height: $footerHeight;
 }
 
-#content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
+.fade-content {
+  min-height:calc(100vh - 97px - #{$footerHeight});
 }
