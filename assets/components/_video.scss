@@ -14,6 +14,17 @@
 
 }
 
+@include keyframes(bubble-before) {
+  0% {
+    transform: scale(.98, .98);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.05, 1.05);
+    opacity: .4;
+  }
+}
+
 @include keyframes(dropIn) {
   0% {
     opacity: 0;
@@ -40,6 +51,10 @@ $height: 250px;
     animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
     animation-delay: .3s;
   }
+
+  &:before {
+    @include animate(bubble-before, 1.5s, infinite, alternate);
+  }
 }
 
 .box-round {
@@ -54,7 +69,7 @@ $height: 250px;
   background: $roxyRed;
   position: relative;
   opacity: 0;
-  top:35px;
+  top: 35px;
   i {
     pointer-events: none;
     color: rgba(#fff, .85);
@@ -113,32 +128,43 @@ $height: 250px;
   }
 }
 
-
 @-moz-document url-prefix() {
   .box-round:after {
-    border-image:none;
+    border-image: none;
   }
 }
 
+#content .cover-video {
 
-#content .cover-video.just-background {
-  background: #d51f3c;
-  .box-round {
-    background: #dd3b54 url(images/logo.svg) no-repeat 10px center;
-    background-size: 80% auto;
-    &:hover {
-      background-color: lighten($roxyRed, 5%);
-      i:before, i:after {
-        transform: scale(1.3);
+  &.just-background {
+    background: #d51f3c;
+    .box-round {
+      background: #dd3b54 url(images/logo.svg) no-repeat 10px center;
+      background-size: 80% auto;
+      &:hover {
+        background-color: lighten($roxyRed, 5%);
+        i:before, i:after {
+          transform: scale(1.3);
+        }
+      }
+      &:active {
+        background-color: darken($roxyRed, 2%);
+        i:before, i:after {
+          transform: scale(1.4);
+        }
       }
     }
-    &:active {
-      background-color: darken($roxyRed, 2%);
-      i:before, i:after {
-        transform: scale(1.4);
-      }
-    }
+  }
 
+  &:not(.just-background) {
+    .box-round {
+      background-position: center !important;
+      background-size:cover !important;
+      &:before {
+        border-color: rgba(#fff9f0, .30);
+      }
+
+    }
   }
 }
 
@@ -168,9 +194,11 @@ $height: 250px;
   padding: 0;
   .modal-close {
     color: #fff;
-    background: none;
+    background: black;
     font-size: 32px;
-
+    left:0;
+    right:auto;
+    transition:color $globalShortEaseTime ease;
     &:hover {
       color: darken(#fff, 20);
     }
