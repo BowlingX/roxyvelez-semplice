@@ -1,0 +1,14 @@
+.page-id-189, .postid-263 {
+
+  #logo {
+    transition: opacity .5s ease, transform .5s ease;
+    opacity: 0;
+    transform:translate3d(0,10px,0);
+  }
+
+  .navbar + #navbar #logo {
+    opacity: 1;
+    transform:translate3d(0,0,0);
+  }
+
+}

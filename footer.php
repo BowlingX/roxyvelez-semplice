@@ -6,7 +6,7 @@
 ?>
 			<!-- content -->
 			<footer class="footer">
-				<p>© Copyright 2011 – <?=date('Y')?> Roxy Velez · Made with  ♡</p>
+				<p>© Copyright 2011 – <?=date('Y')?> Roxy Velez · Made with ♥ · <a href="/imprint">Imprint</a></p>
 			</footer>
 			</div>
 		<!-- wrapper -->

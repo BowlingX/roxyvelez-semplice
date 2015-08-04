@@ -5,13 +5,21 @@ $footerHeight:72px;
   font-size:1rem;
   p {
     margin:0;
-    color:#fff;
+    color:#fff9f0;
   }
   padding:20px 5px;
-  background:rgb(213, 31, 60);
+  background:#002d4c;
   height: $footerHeight;
+
+  a {
+    color: #f6b221;
+
+    &:hover {
+      color: #fff9f0;
+    }
+  }
 }
 
-.fade-content {
+#content > .fade-content:first-of-type {
   min-height:calc(100vh - 97px - #{$footerHeight});
 }
