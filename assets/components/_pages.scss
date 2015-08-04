@@ -3,11 +3,13 @@
   #logo {
     transition: opacity .5s ease, transform .5s ease;
     opacity: 0;
+    pointer-events: none;
     transform:translate3d(0,10px,0);
   }
 
   .navbar + #navbar #logo {
     opacity: 1;
+    pointer-events: initial;
     transform:translate3d(0,0,0);
   }
 

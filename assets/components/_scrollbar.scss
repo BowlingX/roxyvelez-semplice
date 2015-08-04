@@ -1,0 +1,23 @@
+::-webkit-scrollbar-thumb {
+  background-color: $roxyRed;
+  &:hover {
+    background-color: rgba($roxyRed, .7);
+  }
+  &:active {
+    background-color: $roxyRed;
+  }
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: $lightGrayColor;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background-color: rgba($roxyRed, .5);
+}
