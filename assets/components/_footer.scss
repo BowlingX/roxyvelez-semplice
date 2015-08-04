@@ -10,7 +10,7 @@ $footerHeight:85px;
   }
   padding:20px 5px;
   background:#002d4c;
-  height: $footerHeight;
+  min-height: $footerHeight;
 
   a {
     color: #f6b221;
