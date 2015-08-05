@@ -1,4 +1,4 @@
-$footerHeight:85px;
+$footerHeight:88px;
 
 .footer {
   text-align: center;
@@ -17,6 +17,14 @@ $footerHeight:85px;
 
     &:hover {
       color: #fff9f0;
+    }
+
+    &.social-link {
+      color: #fff9f0;
+
+      &:hover {
+        color: #f6b221;
+      }
     }
   }
 }

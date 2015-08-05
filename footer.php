@@ -8,9 +8,9 @@
 <footer class="footer">
     <p>© Copyright 2011 – <?= date('Y') ?> Roxy Velez · Made with ♥ · <a href="/imprint">Imprint</a></p>
 
-    <p>Follow me on <a target="_blank" href="https://dribbble.com/roxyvelez"><i class="icon-dribbble"></i></a> ·
-        <a target="_blank" href="https://instagram.com/roxyvelez/"><i class="icon-instagram"></i></a> ·
-        <a target="_blank" href="https://twitter.com/roxyvelez"><i class="icon-twitter"></i></a></p>
+    <p>Follow me on <a class="social-link" target="_blank" href="https://dribbble.com/roxyvelez"><i class="icon-dribbble"></i></a> ·
+        <a class="social-link" target="_blank" href="https://instagram.com/roxyvelez/"><i class="icon-instagram"></i></a> ·
+        <a class="social-link" target="_blank" href="https://twitter.com/roxyvelez"><i class="icon-twitter"></i></a></p>
 </footer>
 </div>
 <!-- wrapper -->
